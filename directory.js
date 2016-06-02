@@ -6,11 +6,12 @@ angular.module('directoryApp', ['ngAnimate', 'ui.router'])
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'home.html'
+        templateUrl: '/static/home.html',
+        controller: 'directoryController as dirList'
       })
       .state('/about', {
         url: '/about',
-        templateUrl: 'about.html'
+        templateUrl: '/static/about.html'
       });
   })
   .controller('directoryController', function(){
@@ -27,6 +28,11 @@ angular.module('directoryApp', ['ngAnimate', 'ui.router'])
          dirList.name =''
          dirList.age = 0
       };
+ })
+ .directive('directoryPerson', function(){
+   return {
+     templateUrl: 'directory-person.html'
+   }
  });
 
 
